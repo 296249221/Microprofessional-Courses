@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
@@ -14,20 +14,38 @@
         密码：<input type="text" name="password" id="password">
     </p>
     <p>
+        文件：<input type="file" name="file" id="file">
+    </p>
+    <p>
         <button>提交</button>
     </p>
     <script>
         var oBtn = document.getElementsByTagName('button')[0];
         oBtn.onclick = function() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            // 获取文件
+            let oFile = document.getElementById('file');
             let oForm = new FormData();
             oForm.set('username', username);
             oForm.set('password', password);
+            oForm.set('file',oFile.files[0]);
 
+            console.log(oFile.files);
             var xhr = new XMLHttpRequest();
-            xhr.open('post', 'htt')
+            xhr.open('post', 'http://localhost:2019/upload', true);
+
+            xhr.send(oForm);
+
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState == 4) {
+                    if(xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+                        console.log('成功');
+                    } else {
+                        console.log('失败');
+                    }
+                }
+            }
         }
     </script>
 </body>
