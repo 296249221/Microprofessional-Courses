@@ -2,15 +2,15 @@
 * 支持文本数据的传送，无法很便利的用来读取和上传二进制文件；
 * 传送和接收数据时，没有进度信息，只能提示有没有完成；
 * 受到“同源策略(Same Orign Policy)”，只能向同一域名的服务器请求数据，使用JsonP解决同源策略；
-* <script><iframe><img><link>不受同源策略影响。
+* `<script><iframe><img><link>`不受同源策略影响。
 #### Ajax 2.0：
 * 使用FormData对象来管理表单数据；
 * 支持文件上传；
 * 支持跨域请求；
 * 可以获得数据传输的进度信息；
 * 不兼容低版本浏览器。
-#### FormData主要用于处理上传文件，form表单上传文件的编码方式是multipart/form-data
-<!--<form action="" enctype="multipart/form-data"></form>-->
+#### FormData主要用于处理上传文件，form表单上传文件的编码方式是multipart/form-data。
+`<form action="" enctype="multipart/form-data"></form>`
 #### FormData的基本方法：
 * set(key, value)增加数据会覆盖；
 * append(key, value)追加数据不会覆盖,允许相同的key；
@@ -25,8 +25,8 @@
 #### koa版本区别：
 * 1 处理回调使用generator；
 * 2 处理回调使用generator(报错)和async/await；
-* 3 处理回调使用async/await；</br>
-解决了异步同步化的问题。
+* 3 处理回调使用async/await；
+*解决了异步同步化的问题。*
 #### package:
 * koa-better-body:解析FormData数据；
 * koa-convert:将generator函数转化为promise对象。
