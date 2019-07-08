@@ -30,7 +30,7 @@
 #### package:
 * koa-better-body:解析FormData数据；
 * koa-convert:将generator函数转化为promise对象。
-#### 跨域问题是由域名||端口号||协议不同引起的。
+#### 跨域问题是由`域名`、`端口号`、`协议`不同引起的。
 #### 当浏览器拿到数据但不返回时，程序报错：
 <code>Access to XMLHttpRequest at 'http://localhost:2019/upload' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.</code>
 是存在跨域问题，需要在请求头加入Access-Control-Allow-Origin:'[域名]'，*为域名通配符，在实际编程中使用不安全。
