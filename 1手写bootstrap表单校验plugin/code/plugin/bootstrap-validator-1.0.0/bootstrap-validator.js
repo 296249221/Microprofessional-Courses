@@ -30,6 +30,7 @@
         this.each(function() {
             var $this = $(this);
             $.extend($this, ops);
+            // 优先级 用户自选(data-bv-raise)>用户统一设置(bootstrapValidator)>程序默认(__DEFS__)
             $this.raise = $this.data("bv-raise") || $this.raise || __DEFS__.raise; 
             var $fields = $this.find("[data-bv=true]");
             console.log($this.raise);
