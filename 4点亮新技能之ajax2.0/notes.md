@@ -9,3 +9,14 @@ Ajax 2.0：
     支持跨域请求；
     可以获得数据传输的进度信息；
     不兼容低版本浏览器。
+FormData主要用于处理上传文件，form表单上传文件的编码方式是multipart/form-data
+<form action="" enctype="multipart/form-data"></form>
+FormData的基本方法
+    set(key, value)增加数据会覆盖；
+    append(key, value)追加数据不会覆盖,允许相同的key；
+    delete(key)删除指定key的value,保留key；
+    get(key)获取指定key的value,如果存在多个value，则获取value[0]；
+    getAll(key)获取指定key的全部value，是个数组。
+机器之间使用Buffer传递数据，Buffer是缓冲区，操作二进制数据流。
+concat()连接两个或多个数组。
+post方法是分段传送数据
