@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>Document</title>
+	<style>
+		html,body {
+			padding: 20px;
+			background-color: #eee;
+		}
+		.form-horizontal.form-login {
+			width: 500px;
+			height: auto;
+			padding: 15px;
+			border: 1px solid #bbb;
+			background-color: #fff;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+    <!--
+        form
+            input select textarea
+
+        Rules(基础规则)
+            require 必填项
+            regex 正则表达式
+            email 邮箱地址
+            mobile 手机号码
+            phone 座机号码
+            ipaddress ip地址
+            number 数字
+            amount 金额
+            maxlength 最大长度
+            最小值
+            maxvalue 最大值
+            区间 16~100
+            日期 2019-07-04 2019/07/04 07/04/2019  format="yyyy/MM/dd"
+
+            (扩展规则)
+            身份证号码
+            银行卡号码
+            房产证的编号
+
+            bootstrap-validator
+    -->
+    <!-- .form-group.has-success(.has-error) -->
+    <form class="form-horizontal form-login">
+	<!-- <form data-bv-raise="change" class="form-horizontal form-login"> -->
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+			<div class="col-sm-10">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="Email"
+                        data-bv="true"
+                        data-bv-require="true"
+                        data-bv-require-error="* 邮箱地址为必填项"
+                        data-bv-email="true"
+                        data-bv-email-error="* 不合法的邮箱地址"
+                        data-bv-maxlength="20"
+                        data-bv-maxlength-error="* 邮箱地址不能超过20长度">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputMobile3" class="col-sm-2 control-label">Mobile</label>
+			<div class="col-sm-10">
+                <input type="text" class="form-control" id="inputMobile3" placeholder="Password"
+                        data-bv="true"
+                        data-bv-require="true"
+                        data-bv-require-error="* 手机为必填项"
+                        data-bv-mobile="true"
+                        data-bv-regex-error="* 不合法的手机号">
+			</div>
+        </div>
+        <div class="form-group">
+			<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+			<div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password"
+                        data-bv="true"
+                        data-bv-require="true"
+                        data-bv-require-error="* 邮箱地址为必填项"
+                        data-bv-regex="^\w{6,12}$"
+                        data-bv-regex-error="* 密码必须由字母数字下划线所组成的6-12位的序列">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-primary">Sign in</button>
+				<button type="reset" class="btn btn-default">Reset</button>
+			</div>
+		</div>
+    </form>
+    <form class="form-horizontal form-login">
+    <!-- <form data-bv-raise="keypress" class="form-horizontal form-login"> -->
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+			<div class="col-sm-10">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="Email"
+                        data-bv="true"
+                        data-bv-require="true"
+                        data-bv-require-error="* 邮箱地址为必填项"
+                        data-bv-email="true"
+                        data-bv-email-error="* 不合法的邮箱地址"
+                        data-bv-maxlength="20"
+                        data-bv-maxlength-error="* 邮箱地址不能超过20长度">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputMobile3" class="col-sm-2 control-label">Mobile</label>
+			<div class="col-sm-10">
+                <input type="text" class="form-control" id="inputMobile3" placeholder="Password"
+                        data-bv="true"
+                        data-bv-require="true"
+                        data-bv-require-error="* 手机为必填项"
+                        data-bv-mobile="true"
+                        data-bv-regex-error="* 不合法的手机号">
+			</div>
+        </div>
+        <div class="form-group">
+			<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+			<div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password"
+                        data-bv="true"
+                        data-bv-require="true"
+                        data-bv-require-error="* 邮箱地址为必填项"
+                        data-bv-regex="^\w{6,12}$"
+                        data-bv-regex-error="* 密码必须由字母数字下划线所组成的6-12位的序列">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-primary">Sign in</button>
+				<button type="reset" class="btn btn-default">Reset</button>
+			</div>
+		</div>
+    </form>
+    <script type="text/javascript" src="plugin/jquery-2.2.4.js"></script>
+    <script type="text/javascript" src="./plugin/bootstrap-validator-1.1.0/bootstrap-validator.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            // 有用户体验，让用户选择
+            $("form").bootstrapValidator({
+                raise: "keyup"
+            });
+        });
+    </script>
+</body>
+</html>
