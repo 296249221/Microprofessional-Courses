@@ -11,7 +11,7 @@ Ajax 2.0：
     不兼容低版本浏览器。
 FormData主要用于处理上传文件，form表单上传文件的编码方式是multipart/form-data
 <form action="" enctype="multipart/form-data"></form>
-FormData的基本方法
+FormData的基本方法：
     set(key, value)增加数据会覆盖；
     append(key, value)追加数据不会覆盖,允许相同的key；
     delete(key)删除指定key的value,保留key；
