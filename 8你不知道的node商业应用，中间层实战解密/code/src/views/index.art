@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="./js/jquery-2.2.4.js"></script>
+</head>
+
+<body>
+    {{each arr}}
+    <div>
+        <h5>{{$value.title}}</h5>
+        <p>{{$value.content}}</p>
+    </div>
+    {{/each}}
+    <button id="getmes">发送一个请求</button>
+    <script type="text/javascript">
+        $("#getmes").on('click', function () {
+            $.ajax({
+                url: "http://localhost:3300/post1",
+                type: 'post',
+                data: { a: 123 },
+                success: function (data) {
+                    console.log(data);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
