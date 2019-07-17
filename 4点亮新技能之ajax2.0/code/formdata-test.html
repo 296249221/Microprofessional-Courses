@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var oForm = new FormData();
+        // set增加数据会覆盖，form允许相同的key
+        oForm.set('username', 'admin');
+        oForm.set('username', 'super');
+        oForm.set('password', 'password');
+        // console.log(oForm.get('username')); // super
+        // console.log(oForm.getAll('password')); // ["password"]
+        oForm.append('username', 'administrator');
+        // console.log(oForm.get('username')); // super
+        // console.log(oForm.getAll('username')); // ["super", "administrator"]
+        oForm.delete('username');
+        // console.log(oForm.get('username')); // null
+        // console.log(oForm.getAll('username')); // []
+    </script>
+</body>
+</html>

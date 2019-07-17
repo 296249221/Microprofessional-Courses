@@ -1,0 +1,1 @@
+#### Vue.js中assets会被webpack打包到代码中，static是运行开发模式之后唯一可以访问的目录，可存放如懒加载的图片。由webpack-dev-server将static设置为静态资源目录。
