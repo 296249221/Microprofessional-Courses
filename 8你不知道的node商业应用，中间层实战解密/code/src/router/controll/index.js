@@ -10,10 +10,5 @@ function index(req, res) {
             res.render('index.art', data); // express独有的方法
         }
     })
-    // if (RadioNodeList.indexhtml && RadioNodeList.hash) {
-    //     res.end(_redis.indexhtml)
-    // } else {
-
-    // }
 }
 module.exports = index;

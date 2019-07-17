@@ -1,7 +1,7 @@
 function index(req, res) {
     res.json({
         status: 200,
-        mes: 'this is a' + req.body.a
+        mes: 'this a is ' + req.body.a
     })
 }
 module.exports = index;
