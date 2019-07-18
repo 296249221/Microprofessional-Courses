@@ -1,15 +1,11 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-    // webpack4目标是消灭配置文件
-    // webpack4新增mode
-    mode:'development', // development:开发模式，不会压缩代码||production:生产模式，自动压缩代码
-    // 打包的入口文件
+    mode:'development',
     entry:{
         app:'./app.js'
     },
     output:{
-        // 输出文件名
         filename:'[name].bundle2.js'
     },
     module:{
@@ -49,9 +45,7 @@ module.exports = {
         proxy:{
             "/":{
                 target:"https://mooc.study.163.com",
-                // 解决同源策略
                 changeOrigin:true,
-                // 重写路径，让路径更简便
                 pathRewrite:{
                     "^/apione":"/smartSpec/detail/1202816603.htm"
                 }
@@ -59,7 +53,6 @@ module.exports = {
         }
     },
     plugins:[
-        // 帮助我们把打包的js自动插入到index.html里
         new HtmlWebpackPlugin({
             filename:'index.html',
             template:'./index.html',
@@ -68,7 +61,7 @@ module.exports = {
             },
             inject:true
         }),
-        // 热更新
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin()
     ]
 }
