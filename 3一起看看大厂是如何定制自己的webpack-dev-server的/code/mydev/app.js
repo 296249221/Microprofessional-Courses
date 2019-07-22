@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import './test.css';
 var i = 0;
 console.log(1);
