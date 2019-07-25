@@ -25,13 +25,14 @@
         "html-webpack-plugin": "^3.2.0",
         "http-proxy-middleware": "0.19.1", // 负责接口代理的中间件
         "style-loader": "^0.23.1",
-        "webpack": "^1.0.0",
+        "webpack": "^4.35.2",
         "webpack-cli": "^3.3.5",
         "webpack-dev-middleware": "^3.7.0", // 负责开启服务的中间件
         "webpack-hot-middleware": "2.25.0" // 负责热更新的中间件
     }
 </pre>
 </code>
+
 #### 如何学习webpack
 * 从应用入手学习基础使用；
 * 学习webpack的最佳实践；
