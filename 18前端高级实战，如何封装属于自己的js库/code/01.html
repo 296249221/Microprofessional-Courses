@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>001</div>
+    <div>002</div>
+    <div>003</div>
+    <span class="txt">004</span>
+    <script>
+        (function (global) {
+            function Library(selector) {
+                // elements.css = function(){
+                //     console.log('长得丑，活得久');
+                // }
+                // return elements;
+                return new Fn(selector);
+            }
+
+            function Fn(selector) {
+                var elements = document.querySelectorAll(selector);
+                // var elements = document.getElementsByTagName(selector);
+                // Fn有一个属性elements，它的值是elements
+                // this.elements = elements;
+                for (var i = 0; i < elements.length; i++) {
+                    this[i] = elements[i];
+                }
+                this.length = elements.length;
+            }
+            // =>没有自己的this,它的this是继承来的，因此Fn.prototype.css = () => {}在这里不能使用
+            // 扩展方法
+            Fn.prototype.css = function (name, value) {
+                for (var i = 0; i < this.length; i++) {
+                    var el = this[i];
+                    el.style[name] = value;
+                }
+            }
+            Fn.prototype = {
+                // 构造函数要指向本身，否则指向的是object
+                constructor:Fn,
+                css(name, value) {
+                    for (var i = 0; i < this.length; i++) {
+                        var el = this[i];
+                        el.style[name] = value;
+                    }
+                },
+                height(){
+                    console.log('我的酒馆对你打了烊');
+                },
+                cry(){
+                    console.log('灿灿老师长得真美');
+                }
+            }
+            Fn.prototype.height = function () {
+                console.log('我的酒馆对你打了烊');
+            }
+            // 对象结构的污染
+            // HTMLCollection.prototype.css = function(){
+            //     console.log('长得丑，活得久');
+            // }
+            window._$ = window.Library = Library;
+        })(window)
+        // _$()Library库的入口，传入一个我们的标签
+        _$('div').css('color', 'blue');
+        _$('.txt').css('color', 'red');
+        _$('div').height();
+        _$('div').cry();
+    // 不是new function 没有prototype
+    // var num = new Number();
+
+    // function S() {
+
+    // }
+
+    // var s1 = new S();
+    // _$('p').css();
+    // _$('images').css();
+    // _$('span').css();
+    // 改变所有div的背景色
+    // 原生js去实现我们的业务需求
+    // var oDiv = document.getElementsByTagName('div');
+    // for(var i=0;i<oDiv.length;i++){
+    //     oDiv[i].style.backgroundColor = 'red';
+    // }
+    </script>
+</body>
+
+</html>
