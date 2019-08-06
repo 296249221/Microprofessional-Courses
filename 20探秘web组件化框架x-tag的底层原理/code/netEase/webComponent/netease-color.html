@@ -1,0 +1,29 @@
+<template>
+    <style>
+        .color{
+            color: red;
+        }
+    </style>
+    <p>My favorite colour is:<strong class="color">Red</strong></p>
+</template>
+<script>
+    // 思维编程学习法
+    (function(){ // 创建闭包
+        var element = Object.create(HTMLElement.prototype); // 基于HTML元素的原型创建对象   javascript  Object.create
+
+        // document.querySelector()
+        // document.currentScript.ownerDocument.querySelector()
+        var template = document.currentScript.ownerDocument.querySelector('template').content;
+        // 事件、、onXXX    主观的
+        // 生命周期回调函数     被动的
+        element.createdCallback = function() {
+            var shadowRoot = this.createShadowRoot(); // 创建shadow.root节点    // 作用域 JS CSS HTML
+            var clone = document.importNode(template, true);
+            shadowRoot.appendChild(clone); // 添加模版克隆对象到shadow root中
+        };
+        document.registerElement('netease-color',{ // 注册新组件
+            prototype: element
+        });
+        // 任何的HTML标签元素都是HTMLElement的子类
+    }());
+</script>
