@@ -27,10 +27,12 @@
 * 也是TCP协议建立的管道基础上进行的通信；
 * 可以理解成浏览器使用的即时通讯的协议；
 * ws协议可以从服务端向客户端发消息，也可以从客户端向服务端发消息，因此可以用于做聊天室。
-// 生成证书指令(需要下载Git)
-// 生成私钥
-// openssl genrsa 1024 > [路径、文件名]
-// 根据私钥生成公钥
-// openssl req -new -key [路径、文件名] -out csr.pem
-// 根据公钥和私钥生成证书
-// openssl x509 -req -days 365 -in csr.pem -signkey private.pem -out file.crt
+#### 生成证书指令
+* 安装openssl环境
+* 生成私钥
+```openssl genrsa 1024 > [私钥名]```
+* 根据私钥生成公钥
+```openssl req -new -key [私钥名] -out [公钥名]```
+* 根据公钥和私钥生成证书
+```openssl x509 -req -days 365 -in [公钥名] -signkey [私钥名] -out [证书名]```
+* 私钥、公钥、证书需要使用UTF-8编码
