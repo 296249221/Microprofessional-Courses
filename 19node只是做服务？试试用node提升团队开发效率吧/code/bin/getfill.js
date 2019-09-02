@@ -13,9 +13,9 @@ module.exports = function (name) {
                 } else {
                     // var data = fs.readFileSync('./project/'+files[i]);
                     // fs.writeFileSync(output+"/"+files[i]);
-                    (function(filename){
-                        fs.readFile('./project/'+files[i],function(){
-                            fs.writeFile(output+"/"+files[i],data,function(){});
+                    (function (filename) {
+                        fs.readFile('./project/' + files[i], function () {
+                            fs.writeFile(output + "/" + files[i], data, function () { });
                         })
                     })(files[i])
                 }

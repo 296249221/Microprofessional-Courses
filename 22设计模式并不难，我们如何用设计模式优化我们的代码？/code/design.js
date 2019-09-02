@@ -47,7 +47,7 @@ var on = function (dom, fn) {
     }
 }
 /**
- * 装饰着模式
+ * 装饰者模式
  */
 function add(a, b) {
     return a + b;

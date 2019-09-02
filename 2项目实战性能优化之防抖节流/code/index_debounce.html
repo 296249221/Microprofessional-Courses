@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JS防抖与节流</title>
+    <style>
+        #container {
+            width: 400px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            color: #fff;
+            background-color: #333;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/javascript">
+        var count = 1;
+        var container = document.getElementById('container');
+        function getUserAction() {
+            // 程序复杂 算法多
+            // console.log(this); // this指向window,不指向div,需要重新定义this指向才能改变div的innerHTML
+            this.innerHTML = count++;
+        }
+        // container.onmousemove = getUserAction;
+        container.onmousemove = throttle(getUserAction, 1000, true);
+
+        // 怎么写？？ 怎么控制函数的执行！  ---> 设计模式 -- 代理模式
+        // 防抖 搜索框
+        // flag 一个程序封装两种方式
+        function debounce(func, wait, flag) {
+            // console.log(this); // this指向div
+            var timeout;
+            return function () {
+                var self = this;
+                clearTimeout(timeout);
+                // 鼠标一进入div就执行:鼠标进入div延迟1s执行
+                // 开始边界 和 结束边界
+                if (flag) {
+                    var callNow = !timeout; // callNow的真假一定可以控制
+                    timeout = setTimeout(function () { // true
+                        timeout = null; // false
+                    }, wait)
+                    if (callNow) {
+                        func.apply(self);
+                    }
+                } else {
+                    timeout = window.setTimeout(function () {
+                        func.apply(self);
+                        // console.log(0);
+                    }, wait);
+                }
+            }
+        }
+        // 第一次 执行
+        // 第二次 执行  执行第二次  如果没有1秒的周期   清除第一次的定时器
+
+        // 节流
+        // 有次序 去执行    ---> 定时器
+        // setTimeout   需要移除事件，逻辑复杂
+        function throttle(func, wait) {
+            // var timeout;
+            // return function () {
+            //     clearInterval(timeout);
+            //     timeout = setInterval(() => { // 执行一次 然后按周期去执行
+            //         func.apply(this);
+            //         // 移除事件
+            //     }, wait);
+            // }
+            var previous = 0; // 参照物
+            return function () {
+                var self = this;
+                var now = +new Date();
+                if (now - previous > wait) {
+                    func.apply(self);
+                    previous = now;
+                }
+                // console.log(now);
+            }
+        }
+    </script>
+</body>
+
+</html>

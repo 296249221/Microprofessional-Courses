@@ -43,17 +43,17 @@
             }
             Fn.prototype = {
                 // 构造函数要指向本身，否则指向的是object
-                constructor:Fn,
+                constructor: Fn,
                 css(name, value) {
                     for (var i = 0; i < this.length; i++) {
                         var el = this[i];
                         el.style[name] = value;
                     }
                 },
-                height(){
+                height() {
                     console.log('我的酒馆对你打了烊');
                 },
-                cry(){
+                cry() {
                     console.log('灿灿老师长得真美');
                 }
             }
