@@ -32,5 +32,8 @@
 * koa-convert:将generator函数转化为promise对象。
 #### 跨域问题是由`域名、端口号、协议`不同引起的。
 #### 当浏览器拿到数据但不返回时，程序报错：
-<code>Access to XMLHttpRequest at 'http://localhost:2019/upload' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.</code>
-是存在跨域问题，需要在请求头加入Access-Control-Allow-Origin:'[域名]'，*为域名通配符，在实际编程中使用不安全。
+```Access to XMLHttpRequest at 'http://localhost:2019/upload' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.```
+是存在跨域问题，需要配置跨域资源共享(cors)，在响应头加入如下几个字段来解决
+* ```Access-Control-Allow-Origin:<origin> | *```(*为域名通配符，在实际编程中使用不安全)
+* ```Access-Control-Allow-Headers:<field-name>[, <field-name>]*```
+* ```Access-Control-Allow-Methods:<method>[, <method>]*```

@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import a from './assets/myaxios'
+import axios from 'axios'
+axios.defaults.baseURL = 'http://localhost:3000/';
 Vue.prototype.a = a([{ name: 'apione', url: './apione' }, { name: 'apitwo', url: './apitwo' }])
 Vue.config.productionTip = false
 
